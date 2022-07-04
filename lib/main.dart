@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import './widgets/People.dart';
 import './widgets/UserProfile.dart';
-import './widgets/Calendar.dart';
+// import './widgets/Calendar.dart';
 // import './widgets/user_profile.dart';
 import 'login_register.dart';
 
@@ -68,7 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
             print("returning widget");
             print(widgets[_currentIndex]);
-            return widgets[_currentIndex];
+            // return widgets[_currentIndex];
+            return UserProfile();
           } else {
             return LoginRegister();
           }

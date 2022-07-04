@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import '../model/user_profile.dart';
 class UserProfile extends StatefulWidget {
 
   const UserProfile({Key? key}) : super(key: key);
@@ -72,7 +73,7 @@ class _UserProfileState extends State<UserProfile> {
       doc(FirebaseAuth.instance.currentUser!.uid).
       get().then((snapshot) =>
       {
-        // print(snapshot["SendEmailReminders"]).
+        print(snapshot['BirthDate'].toString()),
         tempDate = snapshot['BirthDate'].toString(),
         _seconds = int.parse(tempDate.substring(18, 28)),
         _nanoseconds =
@@ -201,7 +202,15 @@ class _UserProfileState extends State<UserProfile> {
               FirebaseAuth.instance.signOut();
             }, child: Text("Log out")),
             ElevatedButton(onPressed: (){
-              addRecord(firstNameController.text, lastNameController.text, birthDate);
+              final userprofile = User_Profile(
+                  firstName: firstNameController.text,
+                  lastName: lastNameController.text,
+                  cellPhone: cellPhoneNumberController.text,
+                  birthDate: birthDate,
+                  sendTextReminders: textReminders,
+                  sendEmailReminders: emailReminders);
+              updateUser(userprofile);
+              // addRecord(firstNameController.text, lastNameController.text, birthDate);
             }, child: Text("Save")),
             Visibility(
               visible: ( !cellPhoneValidated && _saved),
@@ -215,10 +224,21 @@ class _UserProfileState extends State<UserProfile> {
     );
   }
   //
+  Future  getUser() async{
+
+  }
+  Future updateUser(User_Profile userprofile) async {
+    final myID = FirebaseAuth.instance.currentUser!.uid;
+    final docUser = FirebaseFirestore.instance.collection('Users').doc(
+        myID);
+    final json =userprofile.toJson();
+    await docUser.set(json);
+  }
   addRecord (String firstName, String lastName, DateTime birthDate  )  {
     final myID = FirebaseAuth.instance.currentUser!.uid;
     final docUser = FirebaseFirestore.instance.collection('Users').doc(
         myID);
+
     print("Saving");
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text("Saving User")),
