@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "113697587052",
+    "project_id": "bottomnavigationbar-8f191",
+    "storage_bucket": "bottomnavigationbar-8f191.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:113697587052:android:59ec84e16b7ad9c17d3d49",
+        "android_client_info": {
+          "package_name": "com.farestrand.navigationbottombar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "113697587052-l0sqlaole8hhl86fpe20sujbcsh7pvap.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCckwR7xCi6pd7Lzh40mtdH-QDs_G0Ur9k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "113697587052-l0sqlaole8hhl86fpe20sujbcsh7pvap.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
