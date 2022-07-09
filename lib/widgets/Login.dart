@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'Register.dart';
+import 'People.dart';
 class Login extends StatelessWidget {
   const Login({Key? key}) : super(key: key);
 
@@ -55,7 +56,10 @@ class Login extends StatelessWidget {
                       password: passwordController.text.trim()
                   ).then((value) {
                     print("popping");
-                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => const People()),
+                    );
                   });
                 } on FirebaseAuthException catch (e){
                   print(e.code.toString());

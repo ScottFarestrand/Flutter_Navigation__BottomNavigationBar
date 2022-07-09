@@ -51,6 +51,14 @@ class _MyHomePageState extends State<MyHomePage> {
       People(),
       // Calendar()
     ];
+    // final user = FirebaseAuth.instance.currentUser!;
+    // if (user!.uid == null) {
+    //   print("Null");
+    // } else {
+    //   print("not null");
+    //   // print(user!.uid);
+    // };
+
     return Scaffold(
       backgroundColor: Colors.blue,
       appBar: AppBar(

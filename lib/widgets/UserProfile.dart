@@ -55,7 +55,8 @@ class _UserProfileState extends State<UserProfile> {
   @override
 
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser!;
+    final user =  FirebaseAuth.instance.currentUser!;
+    // await getUser();
     print("Building");
     final formKey = GlobalKey<FormState>();
     if (!user.emailVerified && !_alerted) {
@@ -208,7 +209,8 @@ class _UserProfileState extends State<UserProfile> {
                   cellPhone: cellPhoneNumberController.text,
                   birthDate: birthDate,
                   sendTextReminders: textReminders,
-                  sendEmailReminders: emailReminders);
+                  sendEmailReminders: emailReminders,
+                  cellphonevalidated: _cellValidated);
               updateUser(userprofile);
               // addRecord(firstNameController.text, lastNameController.text, birthDate);
             }, child: Text("Save")),
@@ -224,9 +226,10 @@ class _UserProfileState extends State<UserProfile> {
     );
   }
   //
-  Future  getUser() async{
-
-  }
+  // Future  getUser() async{
+  //
+  //   user =  FirebaseAuth.instance.currentUser!;
+  // }
   Future updateUser(User_Profile userprofile) async {
     final myID = FirebaseAuth.instance.currentUser!.uid;
     final docUser = FirebaseFirestore.instance.collection('Users').doc(

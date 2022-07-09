@@ -5,6 +5,7 @@ class User_Profile {
   final DateTime birthDate;
   final bool sendTextReminders;
   final bool sendEmailReminders;
+  final bool cellphonevalidated;
 
   User_Profile({
     required this.firstName,
@@ -13,6 +14,7 @@ class User_Profile {
     required this.birthDate,
     required this.sendTextReminders,
     required this.sendEmailReminders,
+    required this.cellphonevalidated,
 });
   Map<String, dynamic> toJson() => {
     'firstname': firstName,
@@ -21,6 +23,7 @@ class User_Profile {
     'birthdate': birthDate,
     'sendtextreminders': sendTextReminders,
     'sendemailreminders': sendEmailReminders,
+    'cellphonevalidated': cellphonevalidated,
   };
 
   static User_Profile fromJson(Map<String, dynamic> json) => User_Profile(
@@ -29,5 +32,7 @@ class User_Profile {
       cellPhone: json['cellphone'],
       birthDate: json['birthdate'],
       sendTextReminders: json['sendtextreminders'],
-      sendEmailReminders: json['sendEmailReminders']);
+      sendEmailReminders: json['sendEmailReminders'],
+      cellphonevalidated: json['cellphonevalidated'],
+  );
 }
