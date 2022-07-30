@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: StreamBuilder<User?>(
+
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           print("Stream Builder");
