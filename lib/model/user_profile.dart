@@ -1,3 +1,4 @@
+import '../globals.dart';
 class User_Profile {
   final String firstName;
   final String lastName;
@@ -17,22 +18,22 @@ class User_Profile {
     required this.cellphonevalidated,
 });
   Map<String, dynamic> toJson() => {
-    'firstname': firstName,
-    'lastname': lastName,
-    'cellphone': cellPhone,
-    'birthdate': birthDate,
-    'sendtextreminders': sendTextReminders,
-    'sendemailreminders': sendEmailReminders,
-    'cellphonevalidated': cellphonevalidated,
+    gFirstName: firstName,
+    gLastName: lastName,
+    gCellPhone: cellPhone,
+    gBirthDate: birthDate,
+    gSendTextReminders: sendTextReminders,
+    gSendEmailReminders: sendEmailReminders,
+    gCellPhoneValidated: cellphonevalidated,
   };
 
   static User_Profile fromJson(Map<String, dynamic> json) => User_Profile(
-      firstName: json['firstname'],
-      lastName: json['lastname'],
-      cellPhone: json['cellphone'],
-      birthDate: json['birthdate'],
-      sendTextReminders: json['sendtextreminders'],
-      sendEmailReminders: json['sendEmailReminders'],
-      cellphonevalidated: json['cellphonevalidated'],
+      firstName: json[gFirstName],
+      lastName: json[gLastName],
+      cellPhone: json[gCellPhone],
+      birthDate: json[gBirthDate],
+      sendTextReminders: json[gSendTextReminders],
+      sendEmailReminders: json[gSendEmailReminders],
+      cellphonevalidated: json[gCellPhoneValidated],
   );
 }
